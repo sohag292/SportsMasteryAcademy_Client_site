@@ -20,12 +20,13 @@ export default function PopularClass() {
             <SectionTitle heading={"POPULAR CLASSES"} subHeading={"---- Most Enrolled Classes ----"} />
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {popularClasses.map((classItem) => (
-                    <div className='mx-2'>
-                        <ClassCard key={classItem.id} classItem={classItem} />
+                    
+                    <div key={classItem.id} className="mx-4">
+                      <ClassCard classItem={classItem} />
                     </div>
+                 
                 ))}
             </div>
         </div>
-
     );
 }
