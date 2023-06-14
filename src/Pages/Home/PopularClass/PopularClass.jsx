@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../../../components/SectionTitle';
 import ClassCard from './ClassCard';
+import { UsepopularClass } from '../../../hooks/UespopularClass';
 
 export default function PopularClass() {
-    const [popularClasses, setPopularClasses] = useState([]);
-
-    useEffect(() => {
-        fetch('popularClass.json')
-            .then((res) => res.json())
-            .then((data) => {
-                const sortedClasses = data.sort((a, b) => b.numStudents - a.numStudents);
-                const topClasses = sortedClasses.slice(0, 6);
-                setPopularClasses(topClasses);
-            });
-    }, []);
+    
+    const [popularClasses] =  UsepopularClass();
 
     return (
         <div className="container mx-auto">

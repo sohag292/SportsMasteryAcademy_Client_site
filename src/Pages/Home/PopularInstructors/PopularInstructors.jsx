@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../../../components/SectionTitle';
 import PopularInstructorsCard from './PopularInstructorsCard';
+import { UsePopularInstructor } from '../../../hooks/UsePopularInstructor';
 
 export default function PopularInstructors() {
-    const [popularInstructors, setPopularInstructors] = useState([]);
-
-    useEffect(() => {
-        fetch('PopularInstructors.json')
-            .then((res) => res.json())
-            .then((data) => {
-                const topInstructors = data.slice(0, 6);
-                setPopularInstructors(topInstructors);
-            });
-    }, []);
+const [popularInstructors] = UsePopularInstructor()
 
     return (
         <div className='container mx-auto my-5'>

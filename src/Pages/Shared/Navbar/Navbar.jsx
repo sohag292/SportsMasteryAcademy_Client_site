@@ -1,6 +1,7 @@
 import React from 'react'
 import image from '../../../assets/images/navicon.png'
 export default function Navbar() {
+  
   const navItems = <>
     <li className='font-bold'><a>Home</a></li>
     <li className='font-bold'><a>Dashboard</a></li>
