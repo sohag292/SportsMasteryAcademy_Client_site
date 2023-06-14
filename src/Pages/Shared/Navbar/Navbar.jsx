@@ -1,13 +1,13 @@
 import React from 'react'
 import image from '../../../assets/images/navicon.png'
+import { Link } from "react-router-dom";
 export default function Navbar() {
   
   const navItems = <>
-    <li className='font-bold'><a>Home</a></li>
-    <li className='font-bold'><a>Dashboard</a></li>
-    <li className='font-bold'><a>classes</a></li>
-    <li className='font-bold'><a>Instructors</a></li>
-    
+    <Link to="/" className='font-bold ml-5'><a>Home</a></Link>
+    <Link to="/" className='font-bold ml-5'><a>Dashboard</a></Link>
+    <Link to="/" className='font-bold ml-5'><a>classes</a></Link>
+    <Link to="/Instructor" className='font-bold ml-5'><a>Instructors</a></Link>
   </>
   return (
     <div className='z-40'>
@@ -19,6 +19,7 @@ export default function Navbar() {
             </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                 {navItems}
+                
             </ul>
           </div>
 
@@ -49,6 +50,7 @@ export default function Navbar() {
               </div>
             </label>
           </div>
+         
           <button className="btn btn-success ml-8">Login</button>
         </div>
       </div>

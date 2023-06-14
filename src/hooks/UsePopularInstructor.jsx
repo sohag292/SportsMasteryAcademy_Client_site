@@ -7,8 +7,7 @@ export const UsePopularInstructor = () =>{
         fetch('PopularInstructors.json')
             .then((res) => res.json())
             .then((data) => {
-                const topInstructors = data.slice(0, 6);
-                setPopularInstructors(topInstructors);
+                setPopularInstructors(data);
                 setLoading(false);
             });
     }, []);

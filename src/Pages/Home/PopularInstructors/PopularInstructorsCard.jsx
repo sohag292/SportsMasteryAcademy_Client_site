@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function PopularInstructorsCard({ instructorsItem }) {
-    const { photo, name } = instructorsItem;
+    const {photo, name } = instructorsItem;
     return (
         <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl my-3 mx-auto">
