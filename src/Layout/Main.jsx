@@ -6,7 +6,7 @@ import Navbar from '../Pages/Shared/Navbar/Navbar'
 
 export default function Main() {
   const location = useLocation()
-  const noNavandFooter = location.pathname.includes('login');
+  const noNavandFooter = location.pathname.includes('login') ||location.pathname.includes('signup')
   return (
     <div>
       {noNavandFooter ||  <Navbar></Navbar>}
