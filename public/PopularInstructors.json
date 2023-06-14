@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    
     "name": "John Smith",
     "photo": "https://i.ibb.co/Cbq8njq/jhon.jpg",
     "email":"JohnSmith23@gmail.com",
@@ -8,7 +8,7 @@
     "price": "$50/hr"
   },
   {
-    "id": 2,
+    
     "name": "Emily Johnson",
     "photo": "https://i.ibb.co/bBRgMRj/images.jpg",
     "email":"EmilyJohnson3@gmail.com",
@@ -16,7 +16,7 @@
     "price": "$60/hr"
   },
   {
-    "id": 3,
+    
     "name": "Michael Davis",
     "photo": "https://i.ibb.co/ZLZwM4p/images-1.jpg",
     "availableSeats": 8,
@@ -24,7 +24,7 @@
     "price": "$55/hr"
   },
   {
-    "id": 4,
+    
     "name": "Sarah Thompson",
     "photo": "https://i.ibb.co/cQ92DVw/images-2.jpg",
     "email":"SarahThompson23@gmail.com",
@@ -32,7 +32,7 @@
     "price": "$65/hr"
   },
   {
-    "id": 5,
+    
     "name": "David Wilson",
     "photo": "https://i.ibb.co/rmft5qN/download-2.jpg",
     "email":"DavidWilson@gmail.com",
@@ -40,7 +40,7 @@
     "price": "$70/hr"
   },
   {
-    "id": 6,
+    
     "name": "Robert Anderson",
     "photo": "https://i.ibb.co/9nTvNWP/download-3.jpg",
     "email":"RobertAnderson@gmail.com",
@@ -48,7 +48,7 @@
     "price": "$45/hr"
   },
   {
-    "id": 7,
+    
     "name": "OliviaWilson",
     "photo": "https://i.ibb.co/jzhdwnw/images-3.jpg",
     "email":"OliviaWilson@gmail.com",
@@ -56,7 +56,7 @@
     "price": "$75/hr"
   },
   {
-    "id": 8,
+    
     "name": "Daniel Johnson",
     "photo": "https://i.ibb.co/QDw0My6/images-4.jpg",
     "email":"OliviaWilson@gmail.com",

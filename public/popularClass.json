@@ -1,49 +1,49 @@
 [
     
       {
-        "id": 1,
+        
         "title": "Beginner's Cricket Class",
         "description": "Join our beginner's cricket class to learn the basics of cricket and improve your skills. Open for all ages.",
         "numStudents": 40,
         "image": "https://i.ibb.co/ZNY1S90/beginner.jpg"
       },
       {
-        "id": 2,
+        
         "title": "Advanced Cricket Training",
         "description": "Take your cricket skills to the next level with our advanced training program. Suitable for experienced players.",
         "numStudents": 25,
         "image": "https://i.ibb.co/pxR6B7S/cricket-betting-tips-free.jpg"
       },
       {
-        "id": 3,
+        
         "title": "Cricket Coaching for Kids",
         "description": "Introduce your kids to the wonderful game of cricket with our specialized coaching program for children.",
         "numStudents": 35,
         "image": "https://i.ibb.co/z5Bp3m2/1358505075-1.jpg"
       },
       {
-        "id": 4,
+        
         "title": "Women's Cricket Team",
         "description": "Join our women's cricket team and be a part of a supportive and competitive environment. All skill levels welcome.",
         "numStudents": 20,
         "image": "https://i.ibb.co/wBPjxkz/1494837278-original.jpg"
       },
       {
-        "id": 5,
+        
         "title": "Cricket Fitness Training",
         "description": "Enhance your cricket performance through specialized fitness training designed for cricketers.",
         "numStudents": 30,
         "image": "https://i.ibb.co/rbhNKSk/fitness.jpg"
       },
       {
-        "id": 6,
+        
         "title": "Cricket Summer Camp",
         "description": "Enroll your child in our exciting cricket summer camp where they can learn and enjoy cricket in a fun-filled environment.",
         "numStudents": 50,
         "image": "https://i.ibb.co/N1T9VLm/download-1.jpg"
       },
       {
-        "id": 7,
+        
         "title": "Cricket Summer Camp3",
         "description": "Enroll your child in our exciting cricket summer camp where they can learn and enjoy cricket in a fun-filled environment.",
         "numStudents": 10,

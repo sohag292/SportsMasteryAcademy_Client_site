@@ -50,8 +50,7 @@ export default function Navbar() {
               </div>
             </label>
           </div>
-         
-          <button className="btn btn-success ml-8">Login</button>
+         <Link to="/login"><button className="btn btn-success ml-8">Login</button></Link>
         </div>
       </div>
     </div>
