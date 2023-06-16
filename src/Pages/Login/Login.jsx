@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import { AuthContext } from '../../providers/AuthProvider';
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 export default function Login() {
     const { signIn } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
     const {
         register,
         handleSubmit,
@@ -29,12 +35,14 @@ export default function Login() {
                         popup: 'animate__animated animate__fadeOutUp',
                     },
                 });
-                // navigate(from, { replace: true });
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.log(error);
             });
     };
+
+
 
     return (
         <div>
@@ -66,22 +74,35 @@ export default function Login() {
                             )}
                         </div>
 
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" name="password" className="input input-bordered"  {...register("password", {
-                                required: true,
-                                minLength: 6,
-                                maxLength: 20,
-                                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-                            }
-                            )} />
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                placeholder="password"
+                                name="password"
+                                className="input input-bordered pr-10"
+                                {...register("password", {
+                                    required: true,
+                                    minLength: 6,
+                                    maxLength: 20,
+                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                })}
+                            />
+                            <span
+                                className="absolute top-[50px] right-5 text-gray-500 cursor-pointer text-xl"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <FaEye /> : <FaEyeSlash />}
+                            </span>
+
                             {errors.password?.type === 'required' && <p className='text-red-600'>Password is required</p>}
                             {errors.password?.type === 'minLength' && <p className='text-red-600'>Password must be 6 characters</p>}
-                            {errors.password?.type === 'maxLength' && <p className='text-red-600'>Password must be less 20 characters </p>}
-                            {errors.password?.type === 'pattern' && <p className='text-red-600'>Password must have one upperCase one lower case and one special characters </p>}
+                            {errors.password?.type === 'maxLength' && <p className='text-red-600'>Password must be less 20 characters</p>}
+                            {errors.password?.type === 'pattern' && <p className='text-red-600'>Password must have one uppercase, one lowercase, one special character, and one digit</p>}
                         </div>
+
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
                         </div>

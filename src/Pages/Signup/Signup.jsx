@@ -9,7 +9,7 @@ export default function SignUp() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate();
-    
+
     const onSubmit = data => {
         console.log(data);
         createUser(data.email, data.password)
@@ -18,9 +18,16 @@ export default function SignUp() {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.PhotoURL)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email }
-
-
+                        console.log("user is updated");
+                        reset()
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'User create successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate('/');
                     })
                     .catch(error => console.log(error))
             })

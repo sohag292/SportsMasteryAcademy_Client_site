@@ -3,51 +3,65 @@
       {
         
         "title": "Beginner's Cricket Class",
+        "instructor":"John Smith",
         "description": "Join our beginner's cricket class to learn the basics of cricket and improve your skills. Open for all ages.",
         "numStudents": 40,
-        "image": "https://i.ibb.co/ZNY1S90/beginner.jpg"
+        "image": "https://i.ibb.co/ZNY1S90/beginner.jpg",
+        "price":456
       },
       {
         
         "title": "Advanced Cricket Training",
+        "instructor":"Emily Johnson",
         "description": "Take your cricket skills to the next level with our advanced training program. Suitable for experienced players.",
         "numStudents": 25,
-        "image": "https://i.ibb.co/pxR6B7S/cricket-betting-tips-free.jpg"
+        "image": "https://i.ibb.co/pxR6B7S/cricket-betting-tips-free.jpg",
+        "price":4566
       },
       {
         
         "title": "Cricket Coaching for Kids",
+        "instructor":"Michael Davis",
         "description": "Introduce your kids to the wonderful game of cricket with our specialized coaching program for children.",
         "numStudents": 35,
-        "image": "https://i.ibb.co/z5Bp3m2/1358505075-1.jpg"
+        "image": "https://i.ibb.co/z5Bp3m2/1358505075-1.jpg",
+        "price":356
       },
       {
         
         "title": "Women's Cricket Team",
+        "instructor":"Sarah Thompson",
         "description": "Join our women's cricket team and be a part of a supportive and competitive environment. All skill levels welcome.",
         "numStudents": 20,
-        "image": "https://i.ibb.co/wBPjxkz/1494837278-original.jpg"
+        "image": "https://i.ibb.co/wBPjxkz/1494837278-original.jpg",
+        "price":156
       },
       {
         
         "title": "Cricket Fitness Training",
+        "instructor":"David Wilson",
         "description": "Enhance your cricket performance through specialized fitness training designed for cricketers.",
         "numStudents": 30,
-        "image": "https://i.ibb.co/rbhNKSk/fitness.jpg"
+        "image": "https://i.ibb.co/rbhNKSk/fitness.jpg",
+        "price":356
       },
       {
         
         "title": "Cricket Summer Camp",
+        "instructor":"Robert Anderson",
         "description": "Enroll your child in our exciting cricket summer camp where they can learn and enjoy cricket in a fun-filled environment.",
         "numStudents": 50,
-        "image": "https://i.ibb.co/N1T9VLm/download-1.jpg"
+        "image": "https://i.ibb.co/N1T9VLm/download-1.jpg",
+        "price":256
       },
       {
         
         "title": "Cricket Summer Camp3",
+        "instructor":"OliviaWilson",
         "description": "Enroll your child in our exciting cricket summer camp where they can learn and enjoy cricket in a fun-filled environment.",
         "numStudents": 10,
-        "image": "https://i.ibb.co/wBPjxkz/1494837278-original.jpg"
+        "image": "https://i.ibb.co/wBPjxkz/1494837278-original.jpg",
+        "price":136
       }
    
   
