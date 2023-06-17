@@ -16,7 +16,7 @@ const usePaymentHistory = () => {
           Authorization: `Bearer ${token}`, 
         },
       };
-      const res = await axios.get(`http://localhost:5000/payments/history?email=${user?.email}`, config);
+      const res = await axios.get(`https://sports-mastery-academy-server-site.vercel.app/payments/history?email=${user?.email}`, config);
       return res.data; 
     },
   });

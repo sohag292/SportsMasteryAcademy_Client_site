@@ -5,7 +5,7 @@ const useTopInstructors = () => {
   const { data: topInstructors = [], isLoading: loading, refetch } = useQuery({
     queryKey: ['topInstructors'],
     queryFn: async () => {
-      const res = await axios.get('http://localhost:5000/Instructors/popular');
+      const res = await axios.get('https://sports-mastery-academy-server-site.vercel.app/Instructors/popular');
       return res.data;
     },
   });

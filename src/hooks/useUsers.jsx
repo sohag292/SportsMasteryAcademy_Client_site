@@ -5,7 +5,7 @@ const useUsers = () => {
         queryKey: ['users'],
         queryFn: async () => {
             const token = localStorage.getItem('access-token');
-            const res = await fetch('http://localhost:5000/users', {
+            const res = await fetch('https://sports-mastery-academy-server-site.vercel.app/users', {
                 headers: {
                     Authorization: `Bearer ${token}`
                   }

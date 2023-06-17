@@ -70,7 +70,7 @@ const [instructorClasses] = useInstructorClasses()
         // console.log(classData);
       const token = localStorage.getItem('access-token');
     
-      axios.patch('http://localhost:5000/classes/update', {classData}, {
+      axios.patch('https://sports-mastery-academy-server-site.vercel.app/classes/update', {classData}, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,

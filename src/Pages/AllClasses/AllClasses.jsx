@@ -58,7 +58,7 @@ const AllClasses = () => {
             // send data to the mongodb
 
             const token = localStorage.getItem('access-token');
-            axios.post('http://localhost:5000/classes/selected', classData, {
+            axios.post('https://sports-mastery-academy-server-site.vercel.app/classes/selected', classData, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `bearer ${token}`

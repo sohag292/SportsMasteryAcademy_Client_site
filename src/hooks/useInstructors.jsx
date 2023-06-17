@@ -7,7 +7,7 @@ const useInstructors = () => {
   const { data: instructors = [], isLoading, refetch } = useQuery({
     queryKey: ['instructors'],
     queryFn: async () => {
-      const res = await axios.get('http://localhost:5000/users/instructors');
+      const res = await axios.get('https://sports-mastery-academy-server-site.vercel.app/users/instructors');
       return res.data; 
     },
   });

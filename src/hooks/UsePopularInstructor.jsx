@@ -4,7 +4,7 @@ export const UsePopularInstructor = () =>{
     const [popularInstructors, setPopularInstructors] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/popularinstructors')
+        fetch('https://sports-mastery-academy-server-site.vercel.app/popularinstructors')
             .then((res) => res.json())
             .then((data) => {
                 setPopularInstructors(data);

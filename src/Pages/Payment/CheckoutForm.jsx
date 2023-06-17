@@ -23,7 +23,7 @@ const CheckoutForm = ({ payClass, id }) => {
 
     useEffect(() => {
         if (price > 0) {
-            axios.post('http://localhost:5000/create-payment-intent', { price })
+            axios.post('https://sports-mastery-academy-server-site.vercel.app/create-payment-intent', { price })
                 .then(res => {
                     // console.log(res.data.clientSecret)
                     setClientSecret(res.data.clientSecret);
@@ -103,11 +103,11 @@ const CheckoutForm = ({ payClass, id }) => {
                     Authorization: `Bearer ${token}`,
                 },
             };
-            axios.post('http://localhost:5000/payments', payment, config)
+            axios.post('https://sports-mastery-academy-server-site.vercel.app/payments', payment, config)
                 .then(res => {
                     // console.log("from step one", res.data);
                     if (res.data.postResult.insertedId) {
-                        axios.delete(`http://localhost:5000/classes/selected?id=${payClass?.classId}&email=${user?.email}`, config)
+                        axios.delete(`https://sports-mastery-academy-server-site.vercel.app/classes/selected?id=${payClass?.classId}&email=${user?.email}`, config)
                             .then(res => {
 
                                 if (res.data.deletedCount > 0) {

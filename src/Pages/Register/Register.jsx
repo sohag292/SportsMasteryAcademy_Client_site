@@ -40,7 +40,7 @@ const Register = () => {
               // console.log('saved user',saveUser);
              
 
-            fetch('http://localhost:5000/users', {
+            fetch('https://sports-mastery-academy-server-site.vercel.app/users', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'

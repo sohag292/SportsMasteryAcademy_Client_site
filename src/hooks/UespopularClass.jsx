@@ -5,7 +5,7 @@ export const UsepopularClass = () => {
   // const [loading, setLoading] = useState(true);
 
   // useEffect(() => {
-  //   fetch('http://localhost:5000/popularclass')
+  //   fetch('https://sports-mastery-academy-server-site.vercel.app/popularclass')
   //     .then((res) => res.json())
   //     .then((data) => {
   //       const sortedClasses = data.sort((a, b) => b.numStudents - a.numStudents);
@@ -21,7 +21,7 @@ export const UsepopularClass = () => {
       queryKey: ['popularClass'],
     
       queryFn: async () => {
-          const res = await fetch('http://localhost:5000/popularClass')
+          const res = await fetch('https://sports-mastery-academy-server-site.vercel.app/popularClass')
           return res.json();
       },
  

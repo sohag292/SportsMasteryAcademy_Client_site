@@ -5,7 +5,7 @@ const useApprovedClasses = () => {
   const { data: approvedClasses = [], isLoading, refetch: approvedClassRefetch } = useQuery({
     queryKey: ['approvedClasses'],
     queryFn: async () => {
-      const res = await axios.get('http://localhost:5000/classes/approved');
+      const res = await axios.get('https://sports-mastery-academy-server-site.vercel.app/classes/approved');
       return res.data; 
     },
   });

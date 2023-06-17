@@ -15,7 +15,7 @@ const useDeniedClasses = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const res = await axios.get('http://localhost:5000/classes/denied', config);
+      const res = await axios.get('https://sports-mastery-academy-server-site.vercel.app/classes/denied', config);
       return res.data; 
     },
   });

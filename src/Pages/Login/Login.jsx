@@ -52,7 +52,7 @@ const Login = () => {
                 const user = result.user;
                 // console.log(user);
                 const saveUser = { name: user?.displayName, email: user?.email, photoURL: user?.photoURL, role: 'student' }
-                fetch('http://localhost:5000/users', {
+                fetch('https://sports-mastery-academy-server-site.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

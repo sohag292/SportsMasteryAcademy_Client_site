@@ -11,7 +11,7 @@ const ManageClasses = () => {
 
     const handleUpdateStatus = (cls, status) => {
         const token = localStorage.getItem('access-token');
-        const url = `http://localhost:5000/classes/status/?id=${cls?._id}&status=${status}`;
+        const url = `https://sports-mastery-academy-server-site.vercel.app/classes/status/?id=${cls?._id}&status=${status}`;
         fetch(url, {
             method: 'PATCH',
             headers: {
@@ -46,7 +46,7 @@ const ManageClasses = () => {
         if (feedback !== "") {
             console.log(`Feedback for class ${selectedClass}: ${feedback}`);
 
-            const url = `http://localhost:5000/classes/feedback/?id=${selectedClass._id}&feedback=${feedback}`;
+            const url = `https://sports-mastery-academy-server-site.vercel.app/classes/feedback/?id=${selectedClass._id}&feedback=${feedback}`;
             const token = localStorage.getItem('access-token');
             fetch(url, {
                 method: 'PATCH',
