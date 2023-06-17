@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import RegisterImage from '/register-image.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -76,12 +75,8 @@ const Register = () => {
   };
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 h-full w-full mt-4'>
-      <div className='hidden sm:block'>
-        <img className='max-w-[600px] mx-auto mt-16' src={RegisterImage} alt="" />
-      </div>
-
-      <div className='bg-white flex flex-col justify-center'>
+    <div className="min-h-screen flex items-center my-6 justify-center">
+      <div className="card shadow-2xl bg-base-100" style={{ width: '400px', minHeight: '530px' }}>
         <form className='max-w-[450px] w-full mx-auto rounded-lg bg-gray-200 p-8 px-8 shadow-2xl' onSubmit={handleSubmit(onSubmit)}>
           <h2 className='text-4xl text-gray-800 font-bold text-center'>Register</h2>
           <div className='flex flex-col text-gray-800 py-2'>

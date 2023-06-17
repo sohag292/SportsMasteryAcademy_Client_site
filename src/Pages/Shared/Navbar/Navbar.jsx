@@ -15,13 +15,13 @@ const Navbar = () => {
         <>
             <li><NavLink to="/" exact="true"
                 className={`${isDark ? "text-indigo-100 hover:text-indigo-200  inline-block text-base leading-loose"
-                    : "text-body-color hover:text-primary  inline-block font-bold leading-loose"}`}>Home</NavLink></li>
+                    : "text-body-color hover:text-success  inline-block font-bold leading-loose"}`}>Home</NavLink></li>
             <li><NavLink to="/instructors" exact="true"
                 className={`${isDark ? "text-indigo-100 hover:text-indigo-200  inline-block text-base leading-loose"
-                    : "text-body-color hover:text-primary  inline-block  leading-loose"}`}>Instructors</NavLink></li>
+                    : "text-body-color hover:text-success  inline-block  leading-loose"}`}>Instructors</NavLink></li>
             <li><NavLink to="/allClasses" exact="true"
                 className={`${isDark ? "text-indigo-100 hover:text-indigo-200  inline-block text-base leading-loose"
-                    : "text-body-color hover:text-primary  inline-block  leading-loose"}`}>Classes</NavLink></li>
+                    : "text-body-color hover:text-success  inline-block  leading-loose"}`}>Classes</NavLink></li>
             {user && (
                 <li>
                     <NavLink
@@ -29,7 +29,7 @@ const Navbar = () => {
                         exact="true"
                         className={`${isDark
                             ? 'text-indigo-100 hover:text-indigo-200  inline-block text-base leading-loose'
-                            : 'text-body-color hover:text-primary inline-block text-base leading-loose'
+                            : 'text-body-color hover:text-success inline-block text-base leading-loose'
                             }`}
                     >
                         Dashboard

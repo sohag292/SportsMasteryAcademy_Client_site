@@ -1,43 +1,29 @@
-import { ArrowLeft } from 'lucide-react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteError } from 'react-router-dom';
 
-const Error = () => {
+export default function Error() {
+    const { error } = useRouteError();
     return (
-        <div className="my-12 flex items-center justify-center px-2 md:my-24 md:px-0">
-            <div className="lg:flex lg:items-center lg:space-x-10">
-                <img
-                    src="https://illustrations.popsy.co/purple/resistance-band.svg"
-                    alt="question-mark"
-                    className="h-[300px] w-auto"
-                />
-                <div>
-                    <p className="mt-6 text-sm font-semibold text-black">404 error</p>
-                    <h1 className="mt-3 text-2xl font-semibold text-gray-800 md:text-3xl">
-                        We can&apos;t find that page
-                    </h1>
-                    <p className="mt-4 text-gray-500">
-                        Sorry, the page you are looking for doesn&apos;t exist or has been moved.
-                    </p>
-                    <div className="mt-6 flex items-center space-x-3">
-                        <Link to='/'
-                            type="button"
-                            className="inline-flex items-center rounded-md border border-black hover:border-none px-3 py-2 text-sm font-semibold text-black hover:bg-primary hover:text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                        >
-                            <ArrowLeft size={16} className="mr-2" />
-                            Go back
+        <div>
+            <section className="flex items-center h-screen p-4 bg-light text-dark">
+                <div className="container flex flex-col items-center justify-center my-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-1/4 mb-4 text-gray-600">
+                        <path fill="currentColor" d="M256,16C123.452,16,16,123.452,16,256S123.452,496,256,496,496,388.548,496,256,388.548,16,256,16ZM403.078,403.078a207.253,207.253,0,1,1,44.589-66.125A207.332,207.332,0,0,1,403.078,403.078Z"></path>
+                        <rect width="176" height="32" x="168" y="320" fill="currentColor"></rect>
+                        <polygon fill="currentColor" points="210.63 228.042 186.588 206.671 207.958 182.63 184.042 161.37 162.671 185.412 138.63 164.042 117.37 187.958 141.412 209.329 120.042 233.37 143.958 254.63 165.329 230.588 189.37 251.958 210.63 228.042"></polygon>
+                        <polygon fill="currentColor" points="383.958 182.63 360.042 161.37 338.671 185.412 314.63 164.042 293.37 187.958 317.412 209.329 296.042 233.37 319.958 254.63 341.329 230.588 365.37 251.958 386.63 228.042 362.588 206.671 383.958 182.63"></polygon>
+                    </svg>
+                    <div className="text-center">
+                        <h2 className="mb-4 font-bold text-4xl text-gray-600">
+                            <span className="">Error</span> {status || 404}
+                        </h2>
+                        <p className="font-semibold mb-4 ">{error?.message}</p>
+                        <Link to="/" className="btn btn-primary px-4 py-2 rounded">
+                            Back to homepage
                         </Link>
-                        <button
-                            type="button"
-                            className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                        >
-                            Contact us
-                        </button>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
-};
-
-export default Error;
+}

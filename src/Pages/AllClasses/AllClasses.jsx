@@ -93,8 +93,8 @@ const AllClasses = () => {
 
     return (
         <div>
-            <h2 className='text-xl md:text-3xl font-bold text-center my-8 text-primary '>All Classes</h2>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 w-11/12 mx-auto'>
+            <h2 className='text-xl md:text-3xl font-bold text-center my-8 text-success '>All Classes</h2>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 my-5 w-11/12 mx-auto'>
                 {
                     approvedClasses?.map((cls, index) =>
                         <div key={index} className={`card w-full md:w-96  shadow-xl ${cls?.availableSeats == 0 ? "bg-red-300" : isDark ? "bg-indigo-200" : "bg-base-100"} `}>
@@ -103,7 +103,7 @@ const AllClasses = () => {
                                 <h2 className="card-title">Class Name: {cls?.className}</h2>
                                 <p>Instructor Name: {cls?.instructorName}</p>
                                 <p>Available Seats: {cls?.availableSeats}</p>
-                                <p className='text-primary font-bold'>Price: ${cls?.price}</p>
+                                <p className='text-success font-bold'>Price: ${cls?.price}</p>
                                 <div className="card-actions justify-end">
                                    
 
@@ -112,7 +112,7 @@ const AllClasses = () => {
                                     ) : isClassEnrolled(cls?._id) ? (
                                         <button disabled className='btn'>Already Enrolled</button>
                                     ) : (
-                                        <button onClick={() => handleSelectClass(cls)} disabled={cls?.availableSeats == 0 || isAdmin || isInstructor} className={`btn btn-primary`}>Select Class</button>
+                                        <button onClick={() => handleSelectClass(cls)} disabled={cls?.availableSeats == 0 || isAdmin || isInstructor} className={`btn btn-success w-full`}>Select Class</button>
                                     )}
                                 </div>
                             </div>
