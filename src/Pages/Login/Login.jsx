@@ -1,120 +1,147 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
-import SocialLogin from '../Shared/SocialLogin/SocialLogin';
-import { AuthContext } from '../../providers/AuthProvider';
-import { FaEyeSlash, FaEye } from "react-icons/fa";
+import loginImage from '/login-image.png'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 
-export default function Login() {
-    const { signIn } = useContext(AuthContext);
+const Login = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [showPassword, setShowPassword] = useState(false);
 
+    const { logIn, googleSignIn } = useContext(AuthContext);
+
+    const location = useLocation();
     const navigate = useNavigate();
-    const location = useLocation()
-    const from = location.state?.from?.pathname || "/";
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm();
+    const from = location.state?.from?.pathname || '/';
 
     const onSubmit = (data) => {
-        console.log(data);
-        signIn(data.email, data.password)
-            .then((result) => {
+        // console.log(data);
+
+        logIn(data.email, data.password)
+            .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
+
                 Swal.fire({
-                    title: 'User Login successfull',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown',
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp',
-                    },
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User Login successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
                 });
-                navigate(from, { replace: true });
+
+                navigate(from, { relative: true });
+            }).catch(error => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Something went wrong',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
             })
-            .catch((error) => {
-                console.log(error);
-            });
+
     };
 
+    // google sign up or log in 
+    const handleGoogleLogin = () => {
+        googleSignIn()
+            .then((result) => {
+                const user = result.user;
+                // console.log(user);
+                const saveUser = { name: user?.displayName, email: user?.email, photoURL: user?.photoURL, role: 'student' }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User Login successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    })
+            })
+            .catch((error) => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: `Something went wrong: ${error.message}`,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
 
+            });
+    }
+
+    // toggle password visibility 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     return (
-        <div>
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="card shadow-2xl bg-base-100" style={{ width: '400px', minHeight: '530px' }}>
-                    <h3 className="text-center pt-8 text-4xl font-bold">Please Login !</h3>
-                    <form onSubmit={handleSubmit(onSubmit)} className="px-7 py-2">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
+        <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
+            <div className='hidden sm:block md:mt-28'>
+                <img className='w-full h-96 object-cover' src={loginImage} alt="" />
+            </div>
+
+            <div className=' flex flex-col justify-center '>
+                <div className='max-w-[400px] w-full mx-auto rounded-lg bg-gray-200 p-8 shadow-2xl px-8'>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <h2 className='text-4xl text-gray-800 font-bold text-center'>Log In</h2>
+                        <div className='flex flex-col black py-2'>
+                            <label>Email</label>
                             <input
-                                type="text"
-                                placeholder="email"
-                                name="email"
-                                className="input input-bordered"
-                                {...register("email", {
-                                    required: "Email is required",
-                                    pattern: {
-                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                        message: "Invalid email address"
-                                    }
-                                })}
+                                className='rounded-lg text-black bg-gray-300 mt-2 p-2 focus:border-blue-500 focus:bg-gray-100 focus:outline-none'
+                                type="email"
+                                {...register('email', { required: true })}
+                                placeholder='Enter email address'
                             />
-                            {errors.email && (
-                                <span className="text-red-600">
-                                    {errors.email.message}
-                                </span>
-                            )}
+                            {errors.email?.type === 'required' && <p className="text-red-600 text-sm">Email field is required</p>}
+                        </div>
+                        <div className='flex flex-col text-gray-800 py-2'>
+                            <label>Password</label>
+                            <div className='relative'>
+                                <input
+                                    className='w-full rounded-lg text-black bg-gray-300 mt-2 p-2 focus:border-blue-500 focus:bg-gray-100 focus:outline-none'
+                                    type={showPassword ? 'text' : 'password'}
+                                    {...register('password', { required: true })}
+                                />
+                                <button
+                                    type='button'
+                                    className='absolute top-5 right-2'
+                                    onClick={togglePasswordVisibility}
+                                >
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </button>
+                            </div>
+                            {errors.password?.type === 'required' && <p className="text-red-600 text-sm">Password field is required</p>}
                         </div>
 
-                        <div className="form-control relative">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input
-                                type={showPassword ? 'text' : 'password'}
-                                placeholder="password"
-                                name="password"
-                                className="input input-bordered pr-10"
-                                {...register("password", {
-                                    required: true,
-                                    minLength: 6,
-                                    maxLength: 20,
-                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-                                })}
-                            />
-                            <span
-                                className="absolute top-[50px] right-5 text-gray-500 cursor-pointer text-xl"
-                                onClick={() => setShowPassword(!showPassword)}
-                            >
-                                {showPassword ? <FaEye /> : <FaEyeSlash />}
-                            </span>
+                        <button className='w-full my-5 py-2 bg-primary shadow-lg shadow-indigo-500/50 hover:shadow-indigo-400/40 text-white font-semibold rounded-lg'>Log In</button>
 
-                            {errors.password?.type === 'required' && <p className='text-red-600'>Password is required</p>}
-                            {errors.password?.type === 'minLength' && <p className='text-red-600'>Password must be 6 characters</p>}
-                            {errors.password?.type === 'maxLength' && <p className='text-red-600'>Password must be less 20 characters</p>}
-                            {errors.password?.type === 'pattern' && <p className='text-red-600'>Password must have one uppercase, one lowercase, one special character, and one digit</p>}
-                        </div>
 
-                        <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Login" />
-                        </div>
                     </form>
-                    <p className="text-center px-7 text-xl">
-                        <small>
-                            New Here? <Link to="/signup" className="hover:underline underline-offset-1 hover:text-green-700">Create an account</Link>
-                        </small>
-                    </p>
-                    <SocialLogin />
+                    <p className='text-gray-800 text-center'>Don't have an account? Please
+                        <Link to="/register" className='text-primary'> Register</Link> </p>
+                    <div className="divider">OR</div>
+                    <button onClick={() => handleGoogleLogin()} className="btn btn-black w-full btn-outline"><span className="mr-4 text-red-600"><FaGoogle /></span> Log in with Google</button>
                 </div>
+
+
             </div>
         </div>
     );
-}
+};
+
+export default Login;

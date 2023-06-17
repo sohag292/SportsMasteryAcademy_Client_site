@@ -1,17 +1,19 @@
-import React from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
-import Footer from '../Pages/Shared/Footer/Footer'
-import Home from '../Pages/Home/Home/Home'
-import Navbar from '../Pages/Shared/Navbar/Navbar'
+import React, { useContext } from 'react';
+import { Outlet } from "react-router-dom";
+import Navbar from '../Pages/Shared/Navbar/Navbar';
+import Footer from '../Pages/Shared/Footer/Footer';
+import { ToggleContext } from '../Provider/ToggleProvider';
 
-export default function Main() {
-  const location = useLocation()
-  const noNavandFooter = location.pathname.includes('login') ||location.pathname.includes('signup')
-  return (
-    <div>
-      {noNavandFooter ||  <Navbar></Navbar>}
-        <Outlet></Outlet>
-      {noNavandFooter ||  <Footer></Footer>}
-    </div>
-  )
-}
+const Main = () => {
+
+    const {isDark} = useContext(ToggleContext);
+    return (
+        <div className={` ${isDark ? "bg-gray-900" : "bg-base-100"} `}>
+            <Navbar></Navbar>
+            <Outlet></Outlet>
+           <Footer></Footer>
+        </div>
+    );
+};
+
+export default Main;

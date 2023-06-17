@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-#drawer-side a.active{
-    color: white;
+/* CSS */
+.active {
+    color: #646CFF;
+    font-weight: 600;
+    background-color: rgb(240, 243, 255);
+    border-left: 2px solid #646CFF;
+    border-right: 2px solid #646CFF;
 }
 
-.drawer-side a{
-    background-color: transparent;
-}

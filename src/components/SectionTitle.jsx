@@ -9,7 +9,7 @@ export default function SectionTitle({heading,subHeading}) {
   return (
     <div data-aos="fade-up" className='text-center py-7'>
         <h3 className='text-green-500 text-4xl mb-2 font-bold '>{heading}</h3>
-        <p className='text-2xl'>{subHeading}</p>
+        <p className='text-2xl mb-5'>{subHeading}</p>
     </div>
   )
 }
